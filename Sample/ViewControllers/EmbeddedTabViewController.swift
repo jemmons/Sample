@@ -39,6 +39,18 @@ public class EmbeddedTabViewController: UIViewController {
 
 
 
+public extension EmbeddedTabViewController {
+  func embed(in parentController: UIViewController, constrainedBy constraints: [NSLayoutConstraint]) {
+    parentController.addChildViewController(self)
+    parentController.view.addSubview(view)
+    view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate(constraints)
+    didMove(toParentViewController: parentController)
+  }
+}
+
+
+
 private extension EmbeddedTabViewController {
   func removeControllers() {
     childViewControllers.forEach {

@@ -17,6 +17,24 @@
 		C15BF9D31EA00C7800CE09B6 /* EmbeddedTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BF9D21EA00C7800CE09B6 /* EmbeddedTabViewController.swift */; };
 		C15BFA101EA0177000CE09B6 /* BagOfTricks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C15BFA0F1EA0177000CE09B6 /* BagOfTricks.framework */; };
 		C15BFA131EA025BA00CE09B6 /* SegmentedTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BFA121EA025BA00CE09B6 /* SegmentedTabViewController.swift */; };
+		C15BFA1A1EA10F0F00CE09B6 /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BFA191EA10F0F00CE09B6 /* ArrayDataSource.swift */; };
+		C15BFA1D1EA11A5800CE09B6 /* ResponsibleCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BFA1C1EA11A5800CE09B6 /* ResponsibleCellProtocol.swift */; };
+		C15BFA201EA11A8C00CE09B6 /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BFA1F1EA11A8C00CE09B6 /* CellIdentifier.swift */; };
+		C15BFA231EA11AEA00CE09B6 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BFA221EA11AEA00CE09B6 /* MyCell.swift */; };
+		C1EC28CA1EA11FF100415A76 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28C91EA11FF100415A76 /* MyTableViewController.swift */; };
+		C1EC28CC1EA1217400415A76 /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28CB1EA1217400415A76 /* StatusTableViewController.swift */; };
+		C1EC28CF1EA126AF00415A76 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EC28CE1EA126AF00415A76 /* EmptyTableView.xib */; };
+		C1EC28D11EA1272E00415A76 /* LoadingTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EC28D01EA1272E00415A76 /* LoadingTableView.xib */; };
+		C1EC28D31EA1277200415A76 /* ErrorTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EC28D21EA1277200415A76 /* ErrorTableView.xib */; };
+		C1EC28D61EA146C500415A76 /* Libraries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28D51EA146C500415A76 /* Libraries.swift */; };
+		C1EC28D81EA146DD00415A76 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28D71EA146DD00415A76 /* API.swift */; };
+		C1EC28DA1EA1478400415A76 /* SessionArtist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EC28D91EA1478400415A76 /* SessionArtist.framework */; };
+		C1EC28DC1EA1487100415A76 /* Medea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EC28DB1EA1487100415A76 /* Medea.framework */; };
+		C1EC28DE1EA16D6D00415A76 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28DD1EA16D6D00415A76 /* NetworkDataSource.swift */; };
+		C1EC28E01EA1715400415A76 /* Gauntlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EC28DF1EA1715400415A76 /* Gauntlet.framework */; };
+		C1EC28E31EA17AD500415A76 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28E21EA17AD500415A76 /* NetworkState.swift */; };
+		C1EC28E51EA17B7300415A76 /* ExpressibleByJSONProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28E41EA17B7300415A76 /* ExpressibleByJSONProtocol.swift */; };
+		C1EC28E81EA17EDD00415A76 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28E71EA17EDD00415A76 /* Library.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +62,24 @@
 		C15BF9D21EA00C7800CE09B6 /* EmbeddedTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmbeddedTabViewController.swift; sourceTree = "<group>"; };
 		C15BFA0F1EA0177000CE09B6 /* BagOfTricks.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BagOfTricks.framework; path = Carthage/Build/iOS/BagOfTricks.framework; sourceTree = "<group>"; };
 		C15BFA121EA025BA00CE09B6 /* SegmentedTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedTabViewController.swift; sourceTree = "<group>"; };
+		C15BFA191EA10F0F00CE09B6 /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
+		C15BFA1C1EA11A5800CE09B6 /* ResponsibleCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsibleCellProtocol.swift; sourceTree = "<group>"; };
+		C15BFA1F1EA11A8C00CE09B6 /* CellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
+		C15BFA221EA11AEA00CE09B6 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		C1EC28C91EA11FF100415A76 /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
+		C1EC28CB1EA1217400415A76 /* StatusTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
+		C1EC28CE1EA126AF00415A76 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
+		C1EC28D01EA1272E00415A76 /* LoadingTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingTableView.xib; sourceTree = "<group>"; };
+		C1EC28D21EA1277200415A76 /* ErrorTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorTableView.xib; sourceTree = "<group>"; };
+		C1EC28D51EA146C500415A76 /* Libraries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Libraries.swift; sourceTree = "<group>"; };
+		C1EC28D71EA146DD00415A76 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C1EC28D91EA1478400415A76 /* SessionArtist.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SessionArtist.framework; path = Carthage/Build/iOS/SessionArtist.framework; sourceTree = "<group>"; };
+		C1EC28DB1EA1487100415A76 /* Medea.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medea.framework; path = Carthage/Build/iOS/Medea.framework; sourceTree = "<group>"; };
+		C1EC28DD1EA16D6D00415A76 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
+		C1EC28DF1EA1715400415A76 /* Gauntlet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gauntlet.framework; path = Carthage/Build/iOS/Gauntlet.framework; sourceTree = "<group>"; };
+		C1EC28E21EA17AD500415A76 /* NetworkState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
+		C1EC28E41EA17B7300415A76 /* ExpressibleByJSONProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressibleByJSONProtocol.swift; sourceTree = "<group>"; };
+		C1EC28E71EA17EDD00415A76 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +87,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EC28E01EA1715400415A76 /* Gauntlet.framework in Frameworks */,
 				C15BFA101EA0177000CE09B6 /* BagOfTricks.framework in Frameworks */,
+				C1EC28DC1EA1487100415A76 /* Medea.framework in Frameworks */,
+				C1EC28DA1EA1478400415A76 /* SessionArtist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +127,13 @@
 		C15BF9AE1EA00AF800CE09B6 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
+				C1EC28E61EA17EB900415A76 /* Models */,
+				C1EC28E11EA17ACA00415A76 /* States */,
+				C1EC28D41EA1468700415A76 /* API */,
+				C1EC28CD1EA1268D00415A76 /* Views */,
+				C15BFA211EA11AAF00CE09B6 /* Cells */,
+				C15BFA1E1EA11A7A00CE09B6 /* Types */,
+				C15BFA181EA10EDF00CE09B6 /* DataSource */,
 				C15BF9D11EA00C5C00CE09B6 /* ViewControllers */,
 				C15BF9AF1EA00AF800CE09B6 /* AppDelegate.swift */,
 				C15BF9B11EA00AF800CE09B6 /* ViewController.swift */,
@@ -113,6 +159,8 @@
 			children = (
 				C15BF9D21EA00C7800CE09B6 /* EmbeddedTabViewController.swift */,
 				C15BFA121EA025BA00CE09B6 /* SegmentedTabViewController.swift */,
+				C1EC28CB1EA1217400415A76 /* StatusTableViewController.swift */,
+				C1EC28C91EA11FF100415A76 /* MyTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -120,9 +168,74 @@
 		C15BFA0E1EA0177000CE09B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1EC28DF1EA1715400415A76 /* Gauntlet.framework */,
+				C1EC28DB1EA1487100415A76 /* Medea.framework */,
+				C1EC28D91EA1478400415A76 /* SessionArtist.framework */,
 				C15BFA0F1EA0177000CE09B6 /* BagOfTricks.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C15BFA181EA10EDF00CE09B6 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				C15BFA191EA10F0F00CE09B6 /* ArrayDataSource.swift */,
+				C1EC28DD1EA16D6D00415A76 /* NetworkDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		C15BFA1E1EA11A7A00CE09B6 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				C15BFA1F1EA11A8C00CE09B6 /* CellIdentifier.swift */,
+				C1EC28E41EA17B7300415A76 /* ExpressibleByJSONProtocol.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		C15BFA211EA11AAF00CE09B6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C15BFA1C1EA11A5800CE09B6 /* ResponsibleCellProtocol.swift */,
+				C15BFA221EA11AEA00CE09B6 /* MyCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C1EC28CD1EA1268D00415A76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1EC28CE1EA126AF00415A76 /* EmptyTableView.xib */,
+				C1EC28D01EA1272E00415A76 /* LoadingTableView.xib */,
+				C1EC28D21EA1277200415A76 /* ErrorTableView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C1EC28D41EA1468700415A76 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C1EC28D71EA146DD00415A76 /* API.swift */,
+				C1EC28D51EA146C500415A76 /* Libraries.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C1EC28E11EA17ACA00415A76 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				C1EC28E21EA17AD500415A76 /* NetworkState.swift */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
+		C1EC28E61EA17EB900415A76 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C1EC28E71EA17EDD00415A76 /* Library.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,10 +322,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EC28D11EA1272E00415A76 /* LoadingTableView.xib in Resources */,
+				C1EC28D31EA1277200415A76 /* ErrorTableView.xib in Resources */,
 				C15BF9BA1EA00AF800CE09B6 /* LaunchScreen.storyboard in Resources */,
 				C15BF9B71EA00AF800CE09B6 /* Assets.xcassets in Resources */,
 				C15BF9D01EA00B3400CE09B6 /* Cartfile in Resources */,
 				C15BF9B51EA00AF800CE09B6 /* Main.storyboard in Resources */,
+				C1EC28CF1EA126AF00415A76 /* EmptyTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +349,9 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/BagOfTricks.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SessionArtist.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Medea.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Gauntlet.framework",
 			);
 			name = "Carthage Script";
 			outputPaths = (
@@ -248,10 +367,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EC28E31EA17AD500415A76 /* NetworkState.swift in Sources */,
+				C15BFA1D1EA11A5800CE09B6 /* ResponsibleCellProtocol.swift in Sources */,
+				C15BFA1A1EA10F0F00CE09B6 /* ArrayDataSource.swift in Sources */,
 				C15BF9B21EA00AF800CE09B6 /* ViewController.swift in Sources */,
+				C15BFA201EA11A8C00CE09B6 /* CellIdentifier.swift in Sources */,
+				C1EC28CA1EA11FF100415A76 /* MyTableViewController.swift in Sources */,
 				C15BF9B01EA00AF800CE09B6 /* AppDelegate.swift in Sources */,
+				C1EC28D61EA146C500415A76 /* Libraries.swift in Sources */,
+				C15BFA231EA11AEA00CE09B6 /* MyCell.swift in Sources */,
 				C15BFA131EA025BA00CE09B6 /* SegmentedTabViewController.swift in Sources */,
+				C1EC28DE1EA16D6D00415A76 /* NetworkDataSource.swift in Sources */,
 				C15BF9D31EA00C7800CE09B6 /* EmbeddedTabViewController.swift in Sources */,
+				C1EC28E51EA17B7300415A76 /* ExpressibleByJSONProtocol.swift in Sources */,
+				C1EC28E81EA17EDD00415A76 /* Library.swift in Sources */,
+				C1EC28D81EA146DD00415A76 /* API.swift in Sources */,
+				C1EC28CC1EA1217400415A76 /* StatusTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

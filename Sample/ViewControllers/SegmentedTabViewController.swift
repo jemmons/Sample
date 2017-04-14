@@ -24,7 +24,12 @@ public extension SegmentedTabViewController {
   public override func viewDidLoad() {
     with(addBox()) {
       Helper.addSegmentedControl(segmentedControl, to: $0)
-      embedTabController(below: $0)
+      tabController.embed(in: self, constrainedBy: [
+        tabController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        tabController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        tabController.view.topAnchor.constraint(equalTo: $0.bottomAnchor),
+        tabController.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor),
+        ])
     }
     segmentedControl.addTarget(self, action: #selector(selectedIndexChanged(sender:)), for: .valueChanged)
   }
@@ -48,22 +53,6 @@ private extension SegmentedTabViewController {
         $0.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         $0.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor)
         ])
-    }
-  }
-  
-  
-  func embedTabController(below box: UIView) {
-    with(tabController) {
-      addChildViewController($0)
-      view.addSubview($0.view)
-      $0.view.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-        $0.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        $0.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        $0.view.topAnchor.constraint(equalTo: box.bottomAnchor),
-        $0.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor),
-        ])
-      $0.didMove(toParentViewController: self)
     }
   }
 }
