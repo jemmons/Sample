@@ -5,13 +5,16 @@ import BagOfTricks
 public class EmbeddedTabViewController: UIViewController {
   public var viewControllers: [UIViewController] = [] {
     didSet {
-      guard 
+      guard viewControllers.isNotEmpty else {
+        selectedIndex = nil
+        return
+      }
       selectedIndex = 0
     }
   }
   
   
-  public var selectedIndex: Int = -1 {
+  public var selectedIndex: Int? {
     willSet {
       removeControllers()
     }
@@ -37,11 +40,6 @@ public class EmbeddedTabViewController: UIViewController {
 
 
 private extension EmbeddedTabViewController {
-  var selectedController: UIViewController {
-    return viewControllers[selectedIndex]
-  }
-  
-  
   func removeControllers() {
     childViewControllers.forEach {
       $0.willMove(toParentViewController: nil)
@@ -54,7 +52,10 @@ private extension EmbeddedTabViewController {
   
   
   func addSelectedController() {
-    with(viewControllers[selectedIndex]) {
+    guard let someIndex = selectedIndex else {
+      return
+    }
+    with(viewControllers[someIndex]) {
       addChildViewController($0)
       view.addSubview($0.view)
       $0.view.translatesAutoresizingMaskIntoConstraints = false

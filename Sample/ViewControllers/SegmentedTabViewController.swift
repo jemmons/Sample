@@ -4,10 +4,18 @@ import BagOfTricks
 
 
 public class SegmentedTabViewController: UIViewController {
-  weak var segmentedControl: UISegmentedControl!
-  weak var tabController: EmbeddedTabViewController!
-  
-  
+  let segmentedControl = UISegmentedControl(frame: CGRect.zero)
+  let tabController = EmbeddedTabViewController()
+  var viewControllers: [UIViewController] {
+    get {
+      return tabController.viewControllers
+    }
+    set {
+      tabController.viewControllers = newValue
+      Helper.updateSegments(segmentedControl, with: newValue)
+      segmentedControl.selectedSegmentIndex = 0
+    }
+  }
 }
 
 
@@ -15,32 +23,22 @@ public class SegmentedTabViewController: UIViewController {
 public extension SegmentedTabViewController {
   public override func viewDidLoad() {
     with(addBox()) {
-      segmentedControl = addSegmentedControl(to: $0)
-      tabController = embedTabController(below: $0)
+      Helper.addSegmentedControl(segmentedControl, to: $0)
+      embedTabController(below: $0)
     }
-    
-    
-    segmentedControl.insertSegment(withTitle: "ffoooo", at: 0, animated: false)
+    segmentedControl.addTarget(self, action: #selector(selectedIndexChanged(sender:)), for: .valueChanged)
   }
 }
 
 
+internal extension SegmentedTabViewController {
+  func selectedIndexChanged(sender: UISegmentedControl) {
+    tabController.selectedIndex = sender.selectedSegmentIndex
+  }
+}
+
 
 private extension SegmentedTabViewController {
-  func addSegmentedControl(to box: UIView) -> UISegmentedControl {
-    let pad: CGFloat = 16
-    return given(UISegmentedControl(frame: CGRect.zero)) {
-      $0.translatesAutoresizingMaskIntoConstraints = false
-      box.addSubview($0)
-      NSLayoutConstraint.activate([
-        $0.leadingAnchor.constraint(equalTo: box.leadingAnchor, constant: pad),
-        $0.trailingAnchor.constraint(equalTo: box.trailingAnchor, constant: -pad),
-        $0.topAnchor.constraint(equalTo: box.topAnchor, constant: pad),
-        $0.bottomAnchor.constraint(equalTo: box.bottomAnchor, constant: -pad),
-        ])
-    }
-  }
-  
   func addBox() -> UIView {
     return given(UIView(frame: CGRect.zero)){
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -54,8 +52,8 @@ private extension SegmentedTabViewController {
   }
   
   
-  func embedTabController(below box: UIView) -> EmbeddedTabViewController {
-    return given(EmbeddedTabViewController()) {
+  func embedTabController(below box: UIView) {
+    with(tabController) {
       addChildViewController($0)
       view.addSubview($0.view)
       $0.view.translatesAutoresizingMaskIntoConstraints = false
@@ -71,3 +69,25 @@ private extension SegmentedTabViewController {
 }
 
 
+
+private enum Helper {
+  static func addSegmentedControl(_ control: UISegmentedControl, to box: UIView){
+    with(control) {
+      $0.translatesAutoresizingMaskIntoConstraints = false
+      box.addSubview($0)
+      NSLayoutConstraint.activate([
+        $0.leadingAnchor.constraint(equalTo: box.leadingAnchor, constant: 16),
+        $0.trailingAnchor.constraint(equalTo: box.trailingAnchor, constant: -16),
+        $0.topAnchor.constraint(equalTo: box.topAnchor, constant: 8),
+        $0.bottomAnchor.constraint(equalTo: box.bottomAnchor, constant: -8),
+        ])
+    }
+  }
+
+  
+  static func updateSegments(_ segmentedControl: UISegmentedControl, with viewControllers: [UIViewController]) {
+    viewControllers.map { $0.title }.reversed().forEach {
+      segmentedControl.insertSegment(withTitle: $0, at: 0, animated: false)
+    }
+  }
+}

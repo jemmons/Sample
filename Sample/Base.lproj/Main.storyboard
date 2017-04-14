@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MhN-XB-RYc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MhN-XB-RYc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="284" y="-152"/>
         </scene>
-        <!--View Controller-->
+        <!--Title Here-->
         <scene sceneID="Nnp-is-Wv4">
             <objects>
                 <viewController id="h9y-OS-yF1" customClass="ViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,23 +52,7 @@
                             <constraint firstItem="tnb-6E-vhh" firstAttribute="leading" secondItem="2tG-J6-cce" secondAttribute="leading" id="tIE-Nh-RaY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="sZt-wL-yMS">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="67P-K7-cBu">
-                            <rect key="frame" x="113" y="7" width="150" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="First"/>
-                                <segment title="Second"/>
-                            </segments>
-                            <connections>
-                                <action selector="changedTabWithSender:" destination="h9y-OS-yF1" eventType="valueChanged" id="saY-Os-gZ0"/>
-                            </connections>
-                        </segmentedControl>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="segmentedControl" destination="67P-K7-cBu" id="7IL-qJ-5oY"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Title Here" id="sZt-wL-yMS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YwL-V8-fQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,6 +62,10 @@
         <scene sceneID="Pl2-mS-TrF">
             <objects>
                 <viewController id="pdc-X2-afn" customClass="SegmentedTabViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="szy-9W-jQl"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Qw-Of-JIZ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TRG-H7-WAO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
