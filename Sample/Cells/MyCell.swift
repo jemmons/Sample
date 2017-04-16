@@ -3,7 +3,7 @@ import BagOfTricks
 
 
 
-public class MyCell: UITableViewCell, ResponsibleCell {
+public class MyCell: UITableViewCell, ResponsibleJSONCell {
   static public func register(with table: UITableView) -> CellIdentifier {
     return given(CellIdentifier(id: "MyCell")) {
       table.register(self, forCellReuseIdentifier: $0.id)
@@ -11,9 +11,7 @@ public class MyCell: UITableViewCell, ResponsibleCell {
   }
   
   
-  public func fill(with valueObject: Any) {
-    if let value = valueObject as? Library {
-      textLabel?.text = value.name
-    }
+  public func fill(with json: JSONObject) {
+    textLabel?.text = json["name_"] as? String
   }
 }

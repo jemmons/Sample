@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		739B5EC81EA287940085F86F /* NetworkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739B5EC71EA287940085F86F /* NetworkTableViewController.swift */; };
+		73E45E7C1EA26C1A00DEF7F8 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */; };
 		C15BF9B01EA00AF800CE09B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BF9AF1EA00AF800CE09B6 /* AppDelegate.swift */; };
 		C15BF9B21EA00AF800CE09B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BF9B11EA00AF800CE09B6 /* ViewController.swift */; };
 		C15BF9B51EA00AF800CE09B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15BF9B31EA00AF800CE09B6 /* Main.storyboard */; };
@@ -22,7 +24,7 @@
 		C15BFA201EA11A8C00CE09B6 /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BFA1F1EA11A8C00CE09B6 /* CellIdentifier.swift */; };
 		C15BFA231EA11AEA00CE09B6 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BFA221EA11AEA00CE09B6 /* MyCell.swift */; };
 		C1EC28CA1EA11FF100415A76 /* MyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28C91EA11FF100415A76 /* MyTableViewController.swift */; };
-		C1EC28CC1EA1217400415A76 /* StatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28CB1EA1217400415A76 /* StatusTableViewController.swift */; };
+		C1EC28CC1EA1217400415A76 /* StatefulTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28CB1EA1217400415A76 /* StatefulTableViewController.swift */; };
 		C1EC28CF1EA126AF00415A76 /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EC28CE1EA126AF00415A76 /* EmptyTableView.xib */; };
 		C1EC28D11EA1272E00415A76 /* LoadingTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EC28D01EA1272E00415A76 /* LoadingTableView.xib */; };
 		C1EC28D31EA1277200415A76 /* ErrorTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1EC28D21EA1277200415A76 /* ErrorTableView.xib */; };
@@ -32,9 +34,6 @@
 		C1EC28DC1EA1487100415A76 /* Medea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EC28DB1EA1487100415A76 /* Medea.framework */; };
 		C1EC28DE1EA16D6D00415A76 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28DD1EA16D6D00415A76 /* NetworkDataSource.swift */; };
 		C1EC28E01EA1715400415A76 /* Gauntlet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EC28DF1EA1715400415A76 /* Gauntlet.framework */; };
-		C1EC28E31EA17AD500415A76 /* NetworkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28E21EA17AD500415A76 /* NetworkState.swift */; };
-		C1EC28E51EA17B7300415A76 /* ExpressibleByJSONProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28E41EA17B7300415A76 /* ExpressibleByJSONProtocol.swift */; };
-		C1EC28E81EA17EDD00415A76 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1EC28E71EA17EDD00415A76 /* Library.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		739B5EC71EA287940085F86F /* NetworkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTableViewController.swift; sourceTree = "<group>"; };
+		73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		C15BF9AC1EA00AF800CE09B6 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15BF9AF1EA00AF800CE09B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C15BF9B11EA00AF800CE09B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +68,7 @@
 		C15BFA1F1EA11A8C00CE09B6 /* CellIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 		C15BFA221EA11AEA00CE09B6 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		C1EC28C91EA11FF100415A76 /* MyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewController.swift; sourceTree = "<group>"; };
-		C1EC28CB1EA1217400415A76 /* StatusTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewController.swift; sourceTree = "<group>"; };
+		C1EC28CB1EA1217400415A76 /* StatefulTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatefulTableViewController.swift; sourceTree = "<group>"; };
 		C1EC28CE1EA126AF00415A76 /* EmptyTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
 		C1EC28D01EA1272E00415A76 /* LoadingTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingTableView.xib; sourceTree = "<group>"; };
 		C1EC28D21EA1277200415A76 /* ErrorTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorTableView.xib; sourceTree = "<group>"; };
@@ -77,9 +78,6 @@
 		C1EC28DB1EA1487100415A76 /* Medea.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Medea.framework; path = Carthage/Build/iOS/Medea.framework; sourceTree = "<group>"; };
 		C1EC28DD1EA16D6D00415A76 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		C1EC28DF1EA1715400415A76 /* Gauntlet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gauntlet.framework; path = Carthage/Build/iOS/Gauntlet.framework; sourceTree = "<group>"; };
-		C1EC28E21EA17AD500415A76 /* NetworkState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkState.swift; sourceTree = "<group>"; };
-		C1EC28E41EA17B7300415A76 /* ExpressibleByJSONProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpressibleByJSONProtocol.swift; sourceTree = "<group>"; };
-		C1EC28E71EA17EDD00415A76 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +125,6 @@
 		C15BF9AE1EA00AF800CE09B6 /* Sample */ = {
 			isa = PBXGroup;
 			children = (
-				C1EC28E61EA17EB900415A76 /* Models */,
-				C1EC28E11EA17ACA00415A76 /* States */,
 				C1EC28D41EA1468700415A76 /* API */,
 				C1EC28CD1EA1268D00415A76 /* Views */,
 				C15BFA211EA11AAF00CE09B6 /* Cells */,
@@ -159,7 +155,8 @@
 			children = (
 				C15BF9D21EA00C7800CE09B6 /* EmbeddedTabViewController.swift */,
 				C15BFA121EA025BA00CE09B6 /* SegmentedTabViewController.swift */,
-				C1EC28CB1EA1217400415A76 /* StatusTableViewController.swift */,
+				C1EC28CB1EA1217400415A76 /* StatefulTableViewController.swift */,
+				739B5EC71EA287940085F86F /* NetworkTableViewController.swift */,
 				C1EC28C91EA11FF100415A76 /* MyTableViewController.swift */,
 			);
 			path = ViewControllers;
@@ -189,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				C15BFA1F1EA11A8C00CE09B6 /* CellIdentifier.swift */,
-				C1EC28E41EA17B7300415A76 /* ExpressibleByJSONProtocol.swift */,
+				73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -220,22 +217,6 @@
 				C1EC28D51EA146C500415A76 /* Libraries.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		C1EC28E11EA17ACA00415A76 /* States */ = {
-			isa = PBXGroup;
-			children = (
-				C1EC28E21EA17AD500415A76 /* NetworkState.swift */,
-			);
-			name = States;
-			sourceTree = "<group>";
-		};
-		C1EC28E61EA17EB900415A76 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C1EC28E71EA17EDD00415A76 /* Library.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,22 +348,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1EC28E31EA17AD500415A76 /* NetworkState.swift in Sources */,
+				73E45E7C1EA26C1A00DEF7F8 /* JSONObject.swift in Sources */,
 				C15BFA1D1EA11A5800CE09B6 /* ResponsibleCellProtocol.swift in Sources */,
 				C15BFA1A1EA10F0F00CE09B6 /* ArrayDataSource.swift in Sources */,
 				C15BF9B21EA00AF800CE09B6 /* ViewController.swift in Sources */,
 				C15BFA201EA11A8C00CE09B6 /* CellIdentifier.swift in Sources */,
 				C1EC28CA1EA11FF100415A76 /* MyTableViewController.swift in Sources */,
 				C15BF9B01EA00AF800CE09B6 /* AppDelegate.swift in Sources */,
+				739B5EC81EA287940085F86F /* NetworkTableViewController.swift in Sources */,
 				C1EC28D61EA146C500415A76 /* Libraries.swift in Sources */,
 				C15BFA231EA11AEA00CE09B6 /* MyCell.swift in Sources */,
 				C15BFA131EA025BA00CE09B6 /* SegmentedTabViewController.swift in Sources */,
 				C1EC28DE1EA16D6D00415A76 /* NetworkDataSource.swift in Sources */,
 				C15BF9D31EA00C7800CE09B6 /* EmbeddedTabViewController.swift in Sources */,
-				C1EC28E51EA17B7300415A76 /* ExpressibleByJSONProtocol.swift in Sources */,
-				C1EC28E81EA17EDD00415A76 /* Library.swift in Sources */,
 				C1EC28D81EA146DD00415A76 /* API.swift in Sources */,
-				C1EC28CC1EA1217400415A76 /* StatusTableViewController.swift in Sources */,
+				C1EC28CC1EA1217400415A76 /* StatefulTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

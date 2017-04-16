@@ -10,18 +10,16 @@ public struct DataSourceDelegate {
 
 
 
-public class ArrayDataSource<T>: NSObject, UITableViewDataSource {
+public class JSONDataSource: NSObject, UITableViewDataSource {
+  public var delegate = DataSourceDelegate()
   fileprivate let cellIdentifier: CellIdentifier
   
   
-  public var source: [T] = [] {
+  public var source: [JSONObject] = [] {
     didSet{
       dispatchDelegates()
     }
   }
-  
-  
-  public var delegate = DataSourceDelegate()
   
   
   public init(cellIdentifier: CellIdentifier) {
@@ -41,9 +39,9 @@ public class ArrayDataSource<T>: NSObject, UITableViewDataSource {
   
   public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     return given(tableView.dequeueReusableCell(withIdentifier: cellIdentifier.id, for: indexPath)) {
-      if let responsibleCell = $0 as? ResponsibleCell {
-        let value = source[indexPath.row]
-        responsibleCell.fill(with: value)
+      if let responsibleCell = $0 as? ResponsibleJSONCell {
+        let json = source[indexPath.row]
+        responsibleCell.fill(with: json)
       }
     }
   }
@@ -51,7 +49,7 @@ public class ArrayDataSource<T>: NSObject, UITableViewDataSource {
 
 
 
-private extension ArrayDataSource {
+private extension JSONDataSource {
   func dispatchDelegates() {
     switch source.isEmpty {
     case true:

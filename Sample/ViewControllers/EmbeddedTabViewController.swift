@@ -25,16 +25,6 @@ public class EmbeddedTabViewController: UIViewController {
   
   
   fileprivate var selectedConstraints: [NSLayoutConstraint] = []
-  
-  
-  public init() {
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  
-  public required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
 }
 
 

@@ -22,6 +22,8 @@ public class SegmentedTabViewController: UIViewController {
 
 public extension SegmentedTabViewController {
   public override func viewDidLoad() {
+    super.viewDidLoad()
+    
     with(addBox()) {
       Helper.addSegmentedControl(segmentedControl, to: $0)
       tabController.embed(in: self, constrainedBy: [

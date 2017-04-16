@@ -2,7 +2,7 @@ import UIKit
 
 
 
-protocol ResponsibleCell {
+public protocol ResponsibleJSONCell {
   static func register(with table: UITableView) -> CellIdentifier
-  func fill(with valueObject: Any)
+  func fill(with json: JSONObject)
 }

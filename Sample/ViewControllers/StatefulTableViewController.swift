@@ -3,20 +3,26 @@ import BagOfTricks
 
 
 
-public class StatusTableViewController: EmbeddedTabViewController {
-  fileprivate enum Status: Int {
+public class StatefulTableViewController: EmbeddedTabViewController {
+  public var tableView: UITableView! {
+    get{
+      return tableController!.tableView
+    }
+  }
+  
+  public enum State: Int {
     case loading = 0, loaded, empty, error
   }
 
   
-  fileprivate var status: Status {
+  public var state: State {
     get {
       guard
         let _index = tabController.selectedIndex,
-        let status = Status(rawValue: _index) else {
+        let state = State(rawValue: _index) else {
           fatalError("Selected index out of range of table tabs.")
       }
-      return status
+      return state
     }
     set {
       tabController.selectedIndex = newValue.rawValue
@@ -24,42 +30,19 @@ public class StatusTableViewController: EmbeddedTabViewController {
   }
   
   
-  var dataSource: NetworkDataSource<Library>!
-
-  
   weak var tabController: EmbeddedTabViewController!
   weak var tableController: UITableViewController!
 }
 
 
 
-public extension StatusTableViewController {
+public extension StatefulTableViewController {
   override func viewDidLoad() {
+    super.viewDidLoad()
+    
     tabController = Helper.embedTabController(in: self)
     tableController = Helper.addTableControllerTabs(to: tabController)
-    let cellIdentifier = MyCell.register(with: tableController.tableView)
-    dataSource = NetworkDataSource<Library>(cellIdentifier: cellIdentifier)
-    dataSource.delegate.whenEmpty = { [unowned self] in
-      self.status = .empty
-    }
-    dataSource.delegate.whenLoaded = { [unowned self] in
-      self.status = .loaded
-    }
-    dataSource.delegate.whenLoading = { [unowned self] in
-      self.status = .loading
-    }
-    dataSource.delegate.withError = { [unowned self] error in
-      self.status = .error
-    }
-    tableController.tableView.dataSource = dataSource
-    
-    dataSource.load()
   }
-}
-
-
-
-private extension StatusTableViewController {
 }
 
 
