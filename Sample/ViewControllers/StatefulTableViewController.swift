@@ -1,37 +1,24 @@
 import UIKit
 import BagOfTricks
-
+import Gauntlet
 
 
 public class StatefulTableViewController: EmbeddedTabViewController {
+  private enum Tab: Int {
+    case loading = 0, table, empty, error
+  }
+  
+  
   public var tableView: UITableView! {
     get{
       return tableController!.tableView
     }
   }
   
-  public enum State: Int {
-    case loading = 0, loaded, empty, error
-  }
-
-  
-  public var state: State {
-    get {
-      guard
-        let _index = tabController.selectedIndex,
-        let state = State(rawValue: _index) else {
-          fatalError("Selected index out of range of table tabs.")
-      }
-      return state
-    }
-    set {
-      tabController.selectedIndex = newValue.rawValue
-    }
-  }
-  
   
   weak var tabController: EmbeddedTabViewController!
   weak var tableController: UITableViewController!
+  weak var refreshControl: UIRefreshControl!
 }
 
 
@@ -42,6 +29,18 @@ public extension StatefulTableViewController {
     
     tabController = Helper.embedTabController(in: self)
     tableController = Helper.addTableControllerTabs(to: tabController)
+    tableController.refreshControl = UIRefreshControl()
+    refreshControl = tableController.refreshControl
+    refreshControl.addTarget(self, action: #selector(changedRefresh(sender:)), for: .valueChanged)
+  }
+}
+
+
+
+internal extension StatefulTableViewController {
+  @IBAction func changedRefresh(sender: UIRefreshControl) {
+    print(sender.isRefreshing)
+    sender.endRefreshing()
   }
 }
 

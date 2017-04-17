@@ -28,7 +28,7 @@
         <!--Thing Here-->
         <scene sceneID="08C-9q-ZQN">
             <objects>
-                <viewController id="yfA-NH-Q4c" customClass="MyTableViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="yfA-NH-Q4c" customClass="MyTableViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CD0-Wc-JdN"/>
                         <viewControllerLayoutGuide type="bottom" id="ItD-It-D8r"/>
