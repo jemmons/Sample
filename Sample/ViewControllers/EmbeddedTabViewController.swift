@@ -22,6 +22,11 @@ public class EmbeddedTabViewController: UIViewController {
       addSelectedController()
     }
   }
+
+  
+  public var numberOfTabs: Int {
+    return viewControllers.count
+  }
   
   
   fileprivate var selectedConstraints: [NSLayoutConstraint] = []

@@ -3,11 +3,12 @@ import BagOfTricks
 
 
 
-public class MyCell: UITableViewCell, ResponsibleJSONCell {
-  static public func register(with table: UITableView) -> CellIdentifier {
-    return given(CellIdentifier(id: "MyCell")) {
-      table.register(self, forCellReuseIdentifier: $0.id)
-    }
+public class MyCell: UITableViewCell, ResponsibleCell {
+  public static let identifier = "MyCell"
+
+
+  public static func register(with table: UITableView) {
+    table.register(self, forCellReuseIdentifier: identifier)
   }
   
   

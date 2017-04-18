@@ -16,6 +16,11 @@ public class SegmentedTabViewController: UIViewController {
       segmentedControl.selectedSegmentIndex = 0
     }
   }
+  
+  
+  var numberOfTabs: Int {
+    return tabController.numberOfTabs
+  }
 }
 
 
