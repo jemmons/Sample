@@ -4,20 +4,36 @@ import BagOfTricks
 
 
 public struct DataSourceDelegate {
-  var whenEmpty: ()->Void = {}
-  var whenLoaded: ()->Void = {}
+  var changedState: (DataSourceState)->Void = { _ in }
+}
+
+
+
+public enum DataSourceState {
+  case loading, loaded, empty, error
 }
 
 
 
 public class ResponsibleDataSource<CellType: ResponsibleCell, ValueSourceType: ValueSource>: NSObject, UITableViewDataSource where CellType.ValueObject == ValueSourceType.ValueObject {
   public var delegate = DataSourceDelegate()
-  fileprivate let values: ValueSourceType
+  public let values: ValueSourceType
+  public private(set) var state: DataSourceState = .empty {
+    didSet {
+      delegate.changedState(state)
+    }
+  }
   
   
   public override init() {
     values = ValueSourceType()
     super.init()
+    values.delegate.changedValues = { [weak self] in
+      guard let isEmpty = self?.values.isEmpty else {
+        return
+      }
+      self?.state = isEmpty ? .empty : .loaded
+    }
   }
   
   
@@ -37,25 +53,6 @@ public class ResponsibleDataSource<CellType: ResponsibleCell, ValueSourceType: V
         let value = values.value(at: indexPath)
         cell.fill(with: value)
       }
-    }
-  }
-  
-  
-  public func append(_ value: ValueSourceType.ValueObject, in section: SectionIndex) {
-    values.append(value, in: section)
-    dispatchDelegates()
-  }
-}
-
-
-
-private extension ResponsibleDataSource {
-  func dispatchDelegates() {
-    switch values.isEmpty {
-    case true:
-      delegate.whenEmpty()
-    case false:
-      delegate.whenLoaded()
     }
   }
 }

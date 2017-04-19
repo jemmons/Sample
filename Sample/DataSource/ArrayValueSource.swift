@@ -3,7 +3,14 @@ import UIKit
 
 
 public class ArrayValueSource<T>: NSObject, ValueSource {
-  private var store: [T]
+  private var store: [T] {
+    didSet {
+      delegate.changedValues()
+    }
+  }
+  
+  
+  public var delegate: ValueSourceDelegate
   
   
   public var isEmpty: Bool {
@@ -22,7 +29,8 @@ public class ArrayValueSource<T>: NSObject, ValueSource {
   
   
   public func value(at indexPath: IndexPath) -> T {
-    return store.first!
+    assert(indexPath.section == 0)
+    return store[indexPath.row]
   }
   
 
@@ -34,6 +42,7 @@ public class ArrayValueSource<T>: NSObject, ValueSource {
   
   public override required init() {
     store = []
+    delegate = ValueSourceDelegate()
     super.init()
   }
 }
