@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		73E45E7C1EA26C1A00DEF7F8 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */; };
 		73EB72F31EA3FE55006D75A0 /* TableState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB72F21EA3FE55006D75A0 /* TableState.swift */; };
+		73EB72F51EA84DEE006D75A0 /* ResponsibleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73EB72F41EA84DEE006D75A0 /* ResponsibleTableViewController.swift */; };
 		C12261581EA7F942005A2482 /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12261571EA7F942005A2482 /* NetworkDataSource.swift */; };
 		C15BF9B01EA00AF800CE09B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15BF9AF1EA00AF800CE09B6 /* AppDelegate.swift */; };
 		C15BF9B51EA00AF800CE09B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15BF9B31EA00AF800CE09B6 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		73EB72F21EA3FE55006D75A0 /* TableState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableState.swift; sourceTree = "<group>"; };
+		73EB72F41EA84DEE006D75A0 /* ResponsibleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsibleTableViewController.swift; sourceTree = "<group>"; };
 		C12261571EA7F942005A2482 /* NetworkDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		C15BF9AC1EA00AF800CE09B6 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15BF9AF1EA00AF800CE09B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				C15BF9D21EA00C7800CE09B6 /* EmbeddedTabViewController.swift */,
 				C15BFA121EA025BA00CE09B6 /* SegmentedTabViewController.swift */,
 				C1EC28CB1EA1217400415A76 /* StatefulTableViewController.swift */,
+				73EB72F41EA84DEE006D75A0 /* ResponsibleTableViewController.swift */,
 				C1EC28C91EA11FF100415A76 /* MyTableViewController.swift */,
 			);
 			path = ViewControllers;
@@ -367,6 +370,7 @@
 				C15BF9B01EA00AF800CE09B6 /* AppDelegate.swift in Sources */,
 				C1D4DEDB1EA5166300D3490B /* ResponsibleDataSource.swift in Sources */,
 				C12261581EA7F942005A2482 /* NetworkDataSource.swift in Sources */,
+				73EB72F51EA84DEE006D75A0 /* ResponsibleTableViewController.swift in Sources */,
 				73EB72F31EA3FE55006D75A0 /* TableState.swift in Sources */,
 				C1EC28D61EA146C500415A76 /* Libraries.swift in Sources */,
 				C15BFA231EA11AEA00CE09B6 /* MyCell.swift in Sources */,

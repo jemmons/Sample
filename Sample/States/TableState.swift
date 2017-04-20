@@ -10,7 +10,7 @@ enum TableState: StateType {
     switch (self, to) {
     case (.ready, .loading),
          (.loading, .empty), (.loading, .error), (.loading, .loaded),
-         (.loaded, .refreshing),
+         (.empty, .refreshing), (.error, .refreshing), (.loaded, .refreshing),
          (.refreshing, .empty), (.refreshing, .error), (.refreshing, .loaded):
       return true
     default:
