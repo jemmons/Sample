@@ -4,6 +4,7 @@ import Foundation
 
 public struct ValueSourceDelegate {
   var changedValues: ()->Void = {}
+  var withError: (Error)->Void = { _ in }
 }
 
 
