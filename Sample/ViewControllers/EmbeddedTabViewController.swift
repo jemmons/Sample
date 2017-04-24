@@ -62,23 +62,8 @@ private extension EmbeddedTabViewController {
     guard let someIndex = selectedIndex else {
       return
     }
-    with(viewControllers[someIndex]) {
-      addChildViewController($0)
-      view.addSubview($0.view)
-      $0.view.translatesAutoresizingMaskIntoConstraints = false
-      selectedConstraints = makeConstraints(for: $0)
-      NSLayoutConstraint.activate(selectedConstraints)
-      $0.didMove(toParentViewController: self)
-    }
+    selectedConstraints = embedAndMaximize(viewControllers[someIndex])
   }
   
   
-  func makeConstraints(for controller: UIViewController) -> [NSLayoutConstraint] {
-    return [
-      controller.view.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor),
-      controller.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      controller.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      controller.view.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor),
-    ]
-  }
 }

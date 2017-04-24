@@ -4,15 +4,17 @@ import BagOfTricks
 
 
 public class MyCell: UITableViewCell, ResponsibleCell {
-  public static let identifier = "MyCell"
+    private static let identifier: CellIdentifier = "MyCell"
 
-
-  public static func register(with table: UITableView) {
-    table.register(self, forCellReuseIdentifier: identifier)
-  }
-  
-  
-  public func fill(with json: JSONObject) {
-    textLabel?.text = json["name_"] as? String
-  }
+    
+    public static func register(with table: UITableView) -> CellIdentifier {
+        return given(MyCell.identifier) {
+            table.register(self, forCellReuseIdentifier: $0)
+        }
+    }
+    
+    
+    public func fill(with json: JSONObject) {
+        textLabel?.text = json["name_"] as? String
+    }
 }

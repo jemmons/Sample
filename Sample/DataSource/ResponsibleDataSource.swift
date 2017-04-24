@@ -3,56 +3,83 @@ import BagOfTricks
 
 
 
-public struct DataSourceDelegate {
-  var changedState: (DataSourceState)->Void = { _ in }
+public class CompositeDataSource: NSObject, UITableViewDataSource {
+    private let sections: [UITableViewSectionDataSource]
+    
+    
+    public init(_ section: UITableViewSectionDataSource) {
+        sections = [section]
+        super.init()
+    }
+    
+    
+    public init(sections: [UITableViewSectionDataSource]) {
+        self.sections = sections
+        super.init()
+    }
+    
+    
+    public func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].numberOfRows(in: tableView)
+    }
+    
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return sections[indexPath.section].tableView(tableView, cellForRowAt: indexPath)
+    }
 }
 
 
 
-public enum DataSourceState {
-  case loading, loaded, empty, error
+public protocol UITableViewSectionDataSource {
+    var title: String? {get}
+    func numberOfRows(in tableView: UITableView) -> Int
+    //We need the IndexPath here to pass to `dequeueReusableCell`. Otherwise we get the optional cell version.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
 }
 
 
 
-public class ResponsibleDataSource<CellType: ResponsibleCell, ValueSourceType: ValueSource>: NSObject, UITableViewDataSource where CellType.ValueObject == ValueSourceType.ValueObject {
-  public var delegate = DataSourceDelegate()
-  public let values: ValueSourceType
-  public private(set) var state: DataSourceState = .empty {
-    didSet {
-      delegate.changedState(state)
+public class CellIdentifierMemo<T: ResponsibleCell> {
+    private var identifier: CellIdentifier?
+    func value(_ tableView: UITableView) -> String {
+        if identifier == nil {
+            identifier = T.register(with: tableView)
+        }
+        return identifier!
     }
-  }
-  
-  
-  public override init() {
-    values = ValueSourceType()
-    super.init()
-    values.delegate.changedValues = { [weak self] in
-      guard let isEmpty = self?.values.isEmpty else {
-        return
-      }
-      self?.state = isEmpty ? .empty : .loaded
+}
+
+
+
+public class SectionDataSource<CellType: ResponsibleCell>: NSObject, UITableViewSectionDataSource {
+    private let identifierMemo = CellIdentifierMemo<CellType>()
+    public let title: String?
+    public let values: [CellType.ValueObject]
+
+    
+    public init(title: String? = nil, values: [CellType.ValueObject] = []) {
+        self.title = title
+        self.values = values
+        super.init()
     }
-  }
-  
-  
-  public func numberOfSections(in tableView: UITableView) -> Int {
-    return values.numberOfSections
-  }
-  
-  
-  public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return values.numberOfRows(in: SectionIndex(section))
-  }
-  
-  
-  public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return given(tableView.dequeueReusableCell(withIdentifier: CellType.identifier, for: indexPath)) {
-      if let cell = $0 as? CellType {
-        let value = values.value(at: indexPath)
-        cell.fill(with: value)
-      }
+    
+    
+    public func numberOfRows(in tableView: UITableView) -> Int {
+        return values.count
     }
-  }
+    
+    
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return given(tableView.dequeueReusableCell(withIdentifier: identifierMemo.value(tableView), for: indexPath)) {
+            if let cell = $0 as? CellType {
+                cell.fill(with: values[indexPath.row])
+            }
+        }
+    }
 }

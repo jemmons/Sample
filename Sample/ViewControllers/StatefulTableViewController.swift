@@ -4,7 +4,7 @@ import BagOfTricks
 
 public class StatefulTableViewController: EmbeddedTabViewController {
   public enum State: Int {
-    case loading = 0, table, empty, error
+    case busy = 0, table, empty, error
   }
   
   
