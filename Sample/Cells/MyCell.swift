@@ -4,12 +4,9 @@ import BagOfTricks
 
 
 public class MyCell: UITableViewCell, ResponsibleCell {
-    private static let identifier: CellIdentifier = "MyCell"
-
-    
     public static func register(with table: UITableView) -> CellIdentifier {
-        return given(MyCell.identifier) {
-            table.register(self, forCellReuseIdentifier: $0)
+        return given(CellIdentifier(instance: self)) {
+            table.register(self, forCellReuseIdentifier: $0.identifier)
         }
     }
     

@@ -4,10 +4,17 @@ import Gauntlet
 
 
 
-public enum StateThing<T>: StateType {
+enum Result<T> {
+    case success(T)
+    case failure(Error)
+}
+
+
+
+public enum FetcherState<T>: StateType {
     case ready, fetching, success(T), failure(Error)
     
-    public func shouldTransition(to: StateThing) -> Bool {
+    public func shouldTransition(to: FetcherState) -> Bool {
         switch (self, to) {
         case (.ready, .fetching),
              (.fetching, .success), (.fetching, .failure),
@@ -21,15 +28,14 @@ public enum StateThing<T>: StateType {
 
 
 
-
 public struct FetcherDelegate<T> {
-    var changedState: (StateThing<T>)->Void = { _ in }
+    var changedState: (FetcherState<T>)->Void = { _ in }
 }
 
 
 
 public class Fetcher<T> {
-    private let machine = StateMachine<StateThing<T>>(initialState: .ready)
+    private let machine = StateMachine<FetcherState<T>>(initialState: .ready)
     private let fetchFactory: ((Result<T>)->Void)->Void
     public var delegate = FetcherDelegate<T>()
     
@@ -70,7 +76,7 @@ public class Fetcher<T> {
 
 
 public class MyTableViewController: UIViewController {
-    private let dataSource = ResponsibleDataSource<MyCell, ArrayValueSource<JSONObject>>()
+    private let dataSource = CompositeDataSource(SectionDataSource<MyCell>())
     private lazy var fetcher: Fetcher = {
         Fetcher() { (completion: @escaping ((Result<[JSONObject]>) -> Void)) in
             API.library.jsonArrayTask(for: .index) { res in
@@ -91,24 +97,10 @@ public class MyTableViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableViewController = given(StatefulTableViewController()) {
+        with(StatefulTableViewController()) {
             embedAndMaximize($0)
+            tableViewController = $0
         }
-        
-//        dataSource.delegate.changedState = { [unowned self] dataState in
-//            let tableState: StatefulTableViewController.State
-//            switch dataState {
-//            case .empty:
-//                tableState = .empty
-//            case .loaded:
-//                tableState = .table
-//            case .error:
-//                tableState = .error
-//            case .loading:
-//                tableState = .busy
-//            }
-//            self.tableViewController.state = tableState
-//        }
         
         tableViewController.tableView.dataSource = dataSource
         
