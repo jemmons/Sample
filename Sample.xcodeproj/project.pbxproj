@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7308DEB21EB6705F00666184 /* NetworkSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308DEB11EB6705F00666184 /* NetworkSource.swift */; };
+		7308DEB41EB670CF00666184 /* NetworkSourceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308DEB31EB670CF00666184 /* NetworkSourceState.swift */; };
+		7308DEB61EB6739800666184 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7308DEB51EB6739800666184 /* Errors.swift */; };
 		73E45E7C1EA26C1A00DEF7F8 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */; };
 		C1510B6E1EAFEB2600FA2943 /* CompositeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1510B6D1EAFEB2600FA2943 /* CompositeDataSource.swift */; };
 		C1510B701EAFEB5200FA2943 /* UITableViewSectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1510B6F1EAFEB5200FA2943 /* UITableViewSectionDataSource.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7308DEB11EB6705F00666184 /* NetworkSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSource.swift; sourceTree = "<group>"; };
+		7308DEB31EB670CF00666184 /* NetworkSourceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkSourceState.swift; path = Sample/DataSource/NetworkSourceState.swift; sourceTree = SOURCE_ROOT; };
+		7308DEB51EB6739800666184 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		C1510B6D1EAFEB2600FA2943 /* CompositeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeDataSource.swift; sourceTree = "<group>"; };
 		C1510B6F1EAFEB5200FA2943 /* UITableViewSectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewSectionDataSource.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 		73EB72F11EA3FE35006D75A0 /* States */ = {
 			isa = PBXGroup;
 			children = (
+				7308DEB31EB670CF00666184 /* NetworkSourceState.swift */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 			children = (
 				C1510B6D1EAFEB2600FA2943 /* CompositeDataSource.swift */,
 				C1D4DEDA1EA5166300D3490B /* SectionDataSource.swift */,
+				7308DEB11EB6705F00666184 /* NetworkSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -195,6 +203,7 @@
 				73E45E7B1EA26C1A00DEF7F8 /* JSONObject.swift */,
 				C1F47C5E1EAE3F4300D11A31 /* CellIdentifier.swift */,
 				C1510B6F1EAFEB5200FA2943 /* UITableViewSectionDataSource.swift */,
+				7308DEB51EB6739800666184 /* Errors.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -360,16 +369,19 @@
 				73E45E7C1EA26C1A00DEF7F8 /* JSONObject.swift in Sources */,
 				C15BFA1D1EA11A5800CE09B6 /* ResponsibleCellProtocol.swift in Sources */,
 				C1EC28CA1EA11FF100415A76 /* MyTableViewController.swift in Sources */,
+				7308DEB41EB670CF00666184 /* NetworkSourceState.swift in Sources */,
 				C1510B6E1EAFEB2600FA2943 /* CompositeDataSource.swift in Sources */,
 				C15BF9B01EA00AF800CE09B6 /* AppDelegate.swift in Sources */,
 				C1510B701EAFEB5200FA2943 /* UITableViewSectionDataSource.swift in Sources */,
 				C1D4DEDB1EA5166300D3490B /* SectionDataSource.swift in Sources */,
 				C1EC28D61EA146C500415A76 /* Libraries.swift in Sources */,
+				7308DEB21EB6705F00666184 /* NetworkSource.swift in Sources */,
 				C15BFA231EA11AEA00CE09B6 /* MyCell.swift in Sources */,
 				C15BFA131EA025BA00CE09B6 /* SegmentedTabViewController.swift in Sources */,
 				C15BF9D31EA00C7800CE09B6 /* EmbeddedTabViewController.swift in Sources */,
 				C1EC28D81EA146DD00415A76 /* API.swift in Sources */,
 				C1F47C5F1EAE3F4300D11A31 /* CellIdentifier.swift in Sources */,
+				7308DEB61EB6739800666184 /* Errors.swift in Sources */,
 				C1EC28CC1EA1217400415A76 /* StatefulTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

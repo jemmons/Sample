@@ -1,109 +1,58 @@
 import UIKit
 import BagOfTricks
 import Gauntlet
+import SessionArtist
 
-
-
-enum Result<T> {
-    case success(T)
-    case failure(Error)
-}
-
-
-
-public enum FetcherState<T>: StateType {
-    case ready, fetching, success(T), failure(Error)
-    
-    public func shouldTransition(to: FetcherState) -> Bool {
-        switch (self, to) {
-        case (.ready, .fetching),
-             (.fetching, .success), (.fetching, .failure),
-             (.success, .ready), (.failure, .ready):
-            return true
-        default:
-            return false
-        }
-    }
-}
-
-
-
-public struct FetcherDelegate<T> {
-    var changedState: (FetcherState<T>)->Void = { _ in }
-}
-
-
-
-public class Fetcher<T> {
-    private let machine = StateMachine<FetcherState<T>>(initialState: .ready)
-    private let fetchFactory: ((Result<T>)->Void)->Void
-    public var delegate = FetcherDelegate<T>()
-    
-    
-    init(factory: @escaping ((Result<T>)->Void)->Void) {
-        fetchFactory = factory
-        machine.delegates.didTransition = { [weak self] _, to in
-            defer {
-                self?.delegate.changedState(to)
-            }
-            
-            switch to {
-            case .ready:
-                break
-                
-            case .fetching:
-                self?.fetchFactory { (res: Result<T>) in
-                    switch res {
-                    case let .success(t):
-                        self?.machine.queue(.success(t))
-                    case let .failure(e):
-                        self?.machine.queue(.failure(e))
-                    }
-                }
-                
-            case .success, .failure:
-                self?.machine.queue(.ready)
-            }
-        }
-    }
-    
-    
-    func fetch() {
-        machine.queue(.fetching)
-    }
-}
 
 
 
 public class MyTableViewController: UIViewController {
-    private let dataSource = CompositeDataSource(SectionDataSource<MyCell>())
-    private lazy var fetcher: Fetcher = {
-        Fetcher() { (completion: @escaping ((Result<[JSONObject]>) -> Void)) in
-            API.library.jsonArrayTask(for: .index) { res in
-                completion(res.flatMap { jsonArray in jsonArray.map { ($0 as? JSONObject) ?? [:] } })
-            }
+  private let section: SectionDataSource<MyCell>
+  private var dataSource: CompositeDataSource
+  private var networkSource: NetworkSource<JSONObject>
+  private weak var tableViewController: StatefulTableViewController!
+  
+  
+  public required init?(coder aDecoder: NSCoder) {
+    section = SectionDataSource<MyCell>()
+    dataSource = CompositeDataSource(section)
+    networkSource = NetworkSource { handleResult in
+      API.library.jsonArrayTask(for: .index) { res in
+        let result: Result<[JSONObject]> = res.flatMap { code, jsonArray in
+          guard 200..<300 ~= code else {
+            return .failure(NetworkSourceError.failureCode(code))
+          }
+          guard let jsonObjects = jsonArray as? [JSONObject] else {
+            return .failure(NetworkSourceError.unexpectedResponseFormat)
+          }
+          return .success(jsonObjects)
         }
-    }()
-    private weak var tableViewController: StatefulTableViewController!
-    
-    
-    
-    @IBAction func foo(sender: Any) {
-        dataSource.values.append(["name_": "Foo"], in: 0)
-        tableViewController.tableView.reloadData()
+        handleResult(result)
+      }
     }
-
+    super.init(coder: aDecoder)
+  }
+  
+  
+  public override func viewDidLoad() {
+    super.viewDidLoad()
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-
-        with(StatefulTableViewController()) {
-            embedAndMaximize($0)
-            tableViewController = $0
-        }
-        
-        tableViewController.tableView.dataSource = dataSource
-        
-        dataSource.values.append(["name_": "World"], in: 0)
+    with(StatefulTableViewController()) {
+      embedAndMaximize($0)
+      $0.tableView.dataSource = dataSource
+      tableViewController = $0
     }
+    
+    networkSource.delegate.changedState = { [unowned self] state in
+      switch state {
+      case .success(let jsonArray):
+        self.section.values = jsonArray
+        self.tableViewController.state = .table
+      default:
+        break
+      }
+    }
+    
+    networkSource.fetch()
+  }
 }

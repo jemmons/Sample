@@ -18,7 +18,7 @@ public class CellIdentifierMemo<T: ResponsibleCell> {
 public class SectionDataSource<CellType: ResponsibleCell>: NSObject, UITableViewSectionDataSource {
     private let identifierMemo = CellIdentifierMemo<CellType>()
     public let title: String?
-    public let values: [CellType.ValueObject]
+    public var values: [CellType.ValueObject]
 
     
     public init(title: String? = nil, values: [CellType.ValueObject] = []) {
